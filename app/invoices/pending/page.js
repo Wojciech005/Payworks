@@ -47,7 +47,7 @@ setInvoices(updatedItems);
             Invoices amount: {invoices.length}
           </h1>
         </div>
-        {invoices.length === 0 ?  <h1 className="text-3xl text-center font-light">There are no invoices</h1> : 
+        {invoices.length === 0 ?  <h1 className="text-3xl text-center font-light mt-6">There are no invoices</h1> : 
         <div>
           <TableCard>
          <table className="table-auto w-full">
