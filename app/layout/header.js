@@ -38,7 +38,7 @@ export default function Header() {
           </button>
           <h5 className="bg-white p-2 rounded shadow-xl">
             <Image
-              src="/Payworks-logo.png"
+              src="/Payworks-logo.svg"
               width={120}
               height={120}
               alt="Payworks - company logo."
