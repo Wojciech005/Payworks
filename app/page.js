@@ -1,8 +1,7 @@
 import { MdOutlineAddChart } from "react-icons/md";
-import DashboardChart from "./components/chart";
-import DashboardCards from "./components/dashbord-cards";
-import SelectPage from "./components/select";
-
+import DashboardChart from "./components/UI/chart";
+import DashboardCards from "./components/UI/dashbord-cards";
+import SelectPage from "./components/UI/select";
 
 export default function Home() {
   return (
@@ -12,12 +11,12 @@ export default function Home() {
           <MdOutlineAddChart className="text-emerald-800 text-3xl me-1" />{" "}
           Dashboard
         </h1>
-      <SelectPage />
+        <SelectPage />
       </div>
       <DashboardCards />
       <section className="mt-6">
         <div className="bg-white p-3">
-        <DashboardChart />
+          <DashboardChart />
         </div>
       </section>
     </main>

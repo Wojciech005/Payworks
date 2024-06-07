@@ -5,6 +5,7 @@ import { LiaFileInvoiceSolid } from "react-icons/lia";
 import PROJECT_DATA from "@/PROJECT_DATA";
 import { useState } from "react";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
+import TableCard from "@/app/components/UI/table-card";
 
 export default function PaidInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
@@ -24,8 +25,8 @@ export default function PaidInvoices() {
             Invoices amount: {paidInvoices.length}
           </h1>
         </div>
-        {paidInvoices.length === 0 ?  <h1 className="text-3xl text-center mt-6">There are no invoices</h1> : 
-         <div className="w-full bg-white p-3 mt-6 overflow-auto">
+        {paidInvoices.length === 0 ?  <h1 className="text-3xl text-center mt-6 font-light">There are no invoices</h1> : 
+        <TableCard>
          <table className="table-auto w-full">
          <thead className="">
            <tr>
@@ -34,7 +35,7 @@ export default function PaidInvoices() {
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
              <th className="text-left pb-3">Due date</th>
-             <th className="text-left pb-3">Status</th>
+             <th className="text-left pb-3 flex justify-end">Status</th>
            </tr>
          </thead>
          {paidInvoices.map((invoice) => (
@@ -44,11 +45,11 @@ export default function PaidInvoices() {
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
-             <td className='py-2 font-light'>{invoice.status}</td>
+             <td className='py-2 font-light justify-end'>{invoice.status}</td>
            </tbody>
          ))}
        </table>
-         </div>
+       </TableCard>
         }
       </div>
     </>

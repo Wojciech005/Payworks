@@ -8,6 +8,7 @@ import { useState } from "react";
 
 import MobileNavigation from "./mobile-navigation";
 import ProfileNavigation from "./profile-navigation";
+import Link from "next/link";
 
 export default function Header() {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -36,14 +37,12 @@ export default function Header() {
           <button className="block md:hidden" onClick={handleMobileMenu}>
             <RxHamburgerMenu className="text-white text-3xl me-4" />
           </button>
-          <h5 className="bg-white p-2 rounded shadow-xl">
-            <Image
+          <Link href="/" className="bg-white p-2 rounded shadow-xl"> <Image
               src="/Payworks-logo.svg"
               width={120}
               height={120}
               alt="Payworks - company logo."
-            />
-          </h5>
+            /></Link>
         </div>
         <div className="flex items-center">
           <div className="me-4">

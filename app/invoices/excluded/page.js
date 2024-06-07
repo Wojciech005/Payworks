@@ -4,6 +4,8 @@ import { LiaFileInvoiceSolid } from "react-icons/lia";
 import PROJECT_DATA from "@/PROJECT_DATA";
 import { useState } from "react";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
+import TableCard from "@/app/components/UI/table-card";
+import Button from "@/app/components/UI/button";
 
 export default function ExcludedInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
@@ -44,9 +46,9 @@ setInvoices(updatedItems);
             Invoices amount: {invoices.length}
           </h1>
         </div>
-        {invoices.length === 0 ?  <h1 className="text-3xl text-center mt-6">There are no invoices</h1> : 
+        {invoices.length === 0 ?  <h1 className="text-3xl text-center mt-6 font-light">There are no invoices</h1> : 
         <div>
-         <div className="w-full bg-white p-3 mt-6 table-wrap">
+        <TableCard>
          <table className="table-auto w-full">
          <thead className="">
            <tr>
@@ -57,7 +59,7 @@ setInvoices(updatedItems);
              <th className="text-left pb-3">Amount</th>
              <th className="text-left pb-3">Due date</th>
              <th className="text-left pb-3">Status</th>
-             <th className="text-right pb-3 flex">Action</th>
+             <th className="text-right pb-3 flex justify-end">Action</th>
            </tr>
          </thead>
          {invoices.map((invoice) => (
@@ -68,19 +70,17 @@ setInvoices(updatedItems);
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
-             <td className='text-left font-light'><p className={`${invoice.status !== "excluded" && 'text-white w-max px-2 bg-emerald-700 rounded'}`}>{invoice.status}</p></td>
-             <td className="text-right flex py-4">
-                 <button className=" bg-emerald-700 font-light text-white py-1 px-2 rounded me-3" onClick={() => updateItemValue(invoice.invoice_number, 'pending')}>Accept</button>
-                 <button className="  bg-red-700 font-light text-white py-1 px-2 rounded me-3" onClick={() => onDeleteInvoice(invoice.invoice_number)}>Dispute</button>
+             <td className='text-left font-light'><p className={`px-2 ${invoice.status !== "excluded" && 'text-white w-max bg-emerald-600 rounded'}`}>{invoice.status}</p></td>
+             <td className="text-right flex justify-end py-4">
+                 <button className=" bg-emerald-600 font-light text-white py-1 px-2 rounded me-3" onClick={() => updateItemValue(invoice.invoice_number, 'pending')}>Accept</button>
+                 <button className=" bg-red-500 font-light text-white py-1 px-2 rounded" onClick={() => onDeleteInvoice(invoice.invoice_number)}>Dispute</button>
              </td>
            </tbody>
          ))}
        </table>
-         </div>
-         <div className="flex justify-end mt-5 p-6 bg-white">
-         <button className="bg-blue-500 text-white p-2 rounded" onClick={() => alert('Invoices transfered to "Pending"!')}>
-             Transfer 
-           </button>
+       </TableCard>
+         <div className="flex justify-end p-3 md:p-6 mt-5  bg-white">
+          <Button>Transfer</Button>
          </div>
          </div>
         }

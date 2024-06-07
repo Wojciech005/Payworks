@@ -4,6 +4,7 @@ import { LiaFileInvoiceSolid } from "react-icons/lia";
 import PROJECT_DATA from "@/PROJECT_DATA";
 import { useState } from "react";
 import InvoiceTypeNavigation from "../layout/invoice-type-navigation";
+import TableCard from "../components/UI/table-card";
 
 export default function Invoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
@@ -47,8 +48,8 @@ setInvoices(updatedItems);
           </h1>
           {/* <h1 className="flex items-center">Amount to pay: {invoices.length * invoices.amount}</h1> */}
         </div>
-        {invoices.length === 0 ?  <h1 className="text-3xl text-center">There are no invoices</h1> : 
-         <div className="w-full bg-white p-3 mt-6 overflow-auto">
+        {invoices.length === 0 ?  <h1 className="text-3xl text-center font-light">There are no invoices</h1> : 
+          <TableCard>
          <table className="table-auto w-full">
          <thead className="">
            <tr>
@@ -88,7 +89,8 @@ setInvoices(updatedItems);
                Make the payment
              </button>
            </div> */}
-         </div>
+           </TableCard>
+
         }
        
        
