@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,16 +20,35 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #F4F7FB;
+}
+
+* {
+ font-family: "Barlow", sans-serif;;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+
+main {
+  /* width: calc(100% - 300px);
+  margin-left: 300px; */
+}
+
+.table-wrap {
+  overflow-x:auto;
+}
+
+th, td {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+th:last-child, td:last-child {
+  padding-left: 50px;
+  padding-right: 50px;
 }
