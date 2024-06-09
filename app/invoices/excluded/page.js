@@ -36,7 +36,7 @@ setInvoices(updatedItems);
   return (
     <>
     <InvoiceTypeNavigation />
-      <div className="flex min-h-screen flex-col py-12 px-5 lg:px-12">
+      <div className="flex min-h-screen flex-col py-8 md:py-12 px-5 lg:px-12">
         <h1 className="text-2xl flex items-center mb-3 font-light">
           <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1 font-light" />
           Excluded Invoices
@@ -55,6 +55,7 @@ setInvoices(updatedItems);
              <th className="text-left pb-3"></th>
              <th className="text-left pb-3">Invoice Number</th>
              <th className="text-left pb-3">Posted Date</th>
+             {/* <th className="text-left pb-3">Supplier Ref</th> */}
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
              <th className="text-left pb-3">Due date</th>
@@ -67,12 +68,14 @@ setInvoices(updatedItems);
              <td className="py-2"><input type="checkbox" className="w-4 h-4" checked={invoice.status === "pending" && true} /></td>
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
+             {/* <td className="py-2 font-light">{invoice.supplier_reference}</td> */}
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
              <td className='text-left font-light'><p className={`px-2 ${invoice.status !== "excluded" && 'text-white w-max bg-emerald-600 rounded'}`}>{invoice.status}</p></td>
              <td className="text-right flex justify-end py-4">
-                 <button className=" bg-emerald-600 font-light text-white py-1 px-2 rounded me-3" onClick={() => updateItemValue(invoice.invoice_number, 'pending')}>Accept</button>
+                 <button className=" bg-emerald-600 font-light text-white py-1 px-2 rounded" onClick={() => updateItemValue(invoice.invoice_number, 'pending')}>Accept</button>
+                 <button className="bg-amber-500 text-white  py-1 px-2 rounded font-light mx-3" onClick={() => updateItemValue(invoice.invoice_number, 'excluded')}>Exclude</button>
                  <button className=" bg-red-500 font-light text-white py-1 px-2 rounded" onClick={() => onDeleteInvoice(invoice.invoice_number)}>Dispute</button>
              </td>
            </tbody>

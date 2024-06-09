@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handleClick, closeNavigation }) {
+export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handleClick}) {
   return (
     <>
       <div className={mobileMenuOverlay} onClick={handleClick}>

@@ -37,14 +37,14 @@ setInvoices(updatedItems);
   return (
     <>
     <InvoiceTypeNavigation />
-      <div className="flex min-h-screen flex-col py-12 px-5 lg:px-12">
+      <div className="flex min-h-screen flex-col py-8 md:py-12 px-5 lg:px-12">
         <h1 className="text-2xl flex items-center mb-3 font-light">
           <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1" />
           All Invoices
         </h1>
         <div className="flex">
           <h1 className="flex items-center me-4">
-            Invoices amount: {invoices.length}
+            Invoices number: {invoices.length}
           </h1>
           {/* <h1 className="flex items-center">Amount to pay: {invoices.length * invoices.amount}</h1> */}
         </div>
@@ -57,10 +57,11 @@ setInvoices(updatedItems);
              {/* <th className="text-left pb-3">Status update</th> */}
              <th className="text-left pb-3">Invoice Number</th>
              <th className="text-left pb-3">Posted Date</th>
+             <th className="text-left pb-3">Supplier Ref</th>
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
-             <th className="text-left pb-3">Due date</th>
-             <th className="text-left pb-3">Status</th>
+             <th className="text-center pb-3">Due date</th>
+             <th className="text-end pb-3">Status</th>
              {/* <th className="text-right pb-3">Action</th> */}
            </tr>
          </thead>
@@ -70,33 +71,16 @@ setInvoices(updatedItems);
              {/* <td><div className={`pb-2 w-5 h-5 ${invoiceAccepted ? "bg-green-600" : ''}`}></div></td> */}
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
+             <td className="py-2 font-light">{invoice.supplier_reference}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
-             <td className="py-2 font-light">{invoice.due_date}</td>
-             <td className='py-2 font-light'>{invoice.status}</td>
-             {/* <td className='text-center'><p className={`${invoice.status !== "pending" && 'text-white bg-emerald-700 rounded'}`}>{invoice.status}</p></td> */}
-             {/* <td className="text-right"> */}
-                 {/* <button className=" bg-emerald-700 text-white py-1 px-2 rounded me-3" onClick={() => updateItemValue(invoice.invoice_number, 'accepted')}>Accept</button> */}
-                 {/* <button className="  bg-amber-400 text-white my-2  py-1 px-2 rounded mx-4" onClick={() => updateItemValue(invoice.invoice_number, 'pending')}>Exclude</button> */}
-                 {/* <button className="bg-red-700/85 text-white  py-1 px-2 rounded" onClick={() => onDeleteInvoice(invoice.invoice_number)}>Exclude</button> */}
-                 {/* <button className="bg-amber-400 text-white  py-1 px-2 rounded" onClick={() => onDeleteInvoice(invoice.invoice_number)}>Exclude</button> */}
-             {/* </td> */}
+             <td className="py-2 font-light text-center">{invoice.due_date}</td>
+             <td className='py-2 font-light text-end'>{invoice.status}</td>
            </tbody>
          ))}
        </table>
-           {/* <div className="flex justify-end mt-5 border-t pt-6">
-             <button className="bg-blue-500 text-white p-2 rounded">
-               Make the payment
-             </button>
-           </div> */}
            </TableCard>
-
         }
-       
-       
-        {/* <div className="flex justify-end mt-5">
-            <button className="bg-blue-500 text-white p-2 rounded">Make the payment</button>
-        </div> */}
       </div>
     </>
   );

@@ -21,6 +21,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #F4F7FB;
+  position: relative;
 }
 
 * {
@@ -58,4 +59,20 @@ th:first-child, td:first-child {
 th:last-child, td:last-child {
   padding-left: 50px;
   padding-right: 0;
+}
+.profile-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100% !important;
+  z-index: 20;
+}
+
+.popup section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
