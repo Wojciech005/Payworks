@@ -1,13 +1,11 @@
 "use client";
 
-import { LiaFileInvoiceSolid } from "react-icons/lia";
-import PROJECT_DATA from "@/PROJECT_DATA";
 import { useState } from "react";
+import PROJECT_DATA from "@/PROJECT_DATA";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
-import Button from "@/app/components/UI/button";
 import Popup from "@/app/components/UI/popup";
-import Link from "next/link";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
 
 export default function PendingInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
@@ -61,6 +59,7 @@ function submitPaymentHandler(){
 }
 
 
+
   return (
     <>
     <InvoiceTypeNavigation />
@@ -93,7 +92,7 @@ function submitPaymentHandler(){
          {invoices.map((invoice) => (
            <tbody className="border-t" key={invoice.invoice_number}>
             <tr>
-             <td className="py-2"><input type="checkbox" className="w-4 h-4" checked={invoice.status !== "pending" && true}/></td>
+             <td className="py-2"><input type="checkbox" className="w-4 h-4" onChange={() => updateItemValue(invoice.invoice_number, 'accepted')} checked={invoice.status !== "pending" && true}/></td>
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>

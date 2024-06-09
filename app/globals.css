@@ -34,12 +34,7 @@ body {
   }
 }
 
-
-
-main {
-  /* width: calc(100% - 300px);
-  margin-left: 300px; */
-}
+/* table start  */
 
 .table-wrap {
   overflow-x:auto;
@@ -60,6 +55,9 @@ th:last-child, td:last-child {
   padding-left: 50px;
   padding-right: 0;
 }
+
+/* table end  */
+ 
 .profile-menu {
   position: absolute;
   top: 0;

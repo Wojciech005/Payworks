@@ -1,14 +1,14 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
+import Image from "next/image";
+import MobileNavigation from "./mobile-navigation";
+import ProfileNavigation from "./profile-navigation";
 import { FaBell } from "react-icons/fa6";
 import { PiMagnifyingGlass } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
-import Image from "next/image";
-import { useState } from "react";
 
-import MobileNavigation from "./mobile-navigation";
-import ProfileNavigation from "./profile-navigation";
-import Link from "next/link";
 
 export default function Header() {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -24,9 +24,6 @@ export default function Header() {
   }
 
   function handleMobileMenu() {
-    setMobileMenu(!mobileMenu);
-  }
-  function handleCloseMobileMenu() {
     setMobileMenu(!mobileMenu);
   }
 
@@ -59,8 +56,8 @@ export default function Header() {
         </div>
       </header>
       <MobileNavigation mobileMenuOverlay={mobileMenu && "lg:hidden fixed left-0 top-0 w-full h-screen bg-black/70 z-20"}
-        onClick={handleCloseMobileMenu} mobileMenu={mobileMenu ? " fixed left-0 top-0  w-60 h-screen bg-white p-5 ease-in duration-500 shadow"
-            : "fixed left-[-100%] top-0 p-5 ease-in duration-500 h-screen"} handleClick={handleCloseMobileMenu}/>
+        onClick={handleMobileMenu} mobileMenu={mobileMenu ? " fixed left-0 top-0  w-60 h-screen bg-white p-5 ease-in duration-500 shadow"
+            : "fixed left-[-100%] top-0 p-5 ease-in duration-500 h-screen"} handleClick={handleMobileMenu}/>
     </>
   );
 }

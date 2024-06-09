@@ -7,7 +7,7 @@ export default function DashboardCards() {
         <Tile tileTitle="Invoices Number" tileValue="192" />
         <Tile tileTitle="Pending payments" tileValue="127" />
         <Tile tileTitle="Paid Amount" tileValue="£43,000" />
-        <Tile tileTitle="Excluded" tileValue="176" />
+        <Tile tileTitle="Pending credit" tileValue="£21,000" />
       </section>
     </>
   );

@@ -59,7 +59,7 @@ export default function Popup({
                 {!paymentStatus && (
                   <button
                     onClick={popupHandler}
-                    className="bg-red-500 text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider me-4">
+                    className="bg-[#dc4545] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider me-4">
                     Cancel
                   </button>
                 )}

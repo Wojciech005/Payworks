@@ -1,11 +1,14 @@
 "use client";
 
-import { LiaFileInvoiceSolid } from "react-icons/lia";
-import PROJECT_DATA from "@/PROJECT_DATA";
 import { useState } from "react";
+import PROJECT_DATA from "@/PROJECT_DATA";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
 import Button from "@/app/components/UI/button";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
+
+
+
 
 export default function ExcludedInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
@@ -54,7 +57,7 @@ export default function ExcludedInvoices() {
               <table className="table-auto w-full">
                 <thead className="">
                   <tr>
-                    <th className="text-left pb-3"></th>
+                    <th className="text-left pb-3"><input type="checkbox" className="w-4 h-4"/></th>
                     <th className="text-left pb-3">Invoice Number</th>
                     <th className="text-left pb-3">Posted Date</th>
                     <th className="text-left pb-3">Supplier</th>
@@ -74,6 +77,7 @@ export default function ExcludedInvoices() {
                           type="checkbox"
                           className="w-4 h-4"
                           checked={invoice.status === "pending" && true}
+                          onChange={() => updateItemValue(invoice.invoice_number, 'pending')}
                         />
                       </td>
                       <td className="py-2 font-light">
@@ -123,7 +127,7 @@ export default function ExcludedInvoices() {
               </table>
             </TableCard>
             <div className="flex justify-end p-3 md:p-6 mt-5  bg-white">
-              <Button>Transfer</Button>
+              <Button handleClick={()=> alert("Invoices transferred!")}>Transfer</Button>
             </div>
           </div>
         )}

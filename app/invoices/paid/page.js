@@ -1,11 +1,11 @@
-
 "use client";
 
-import { LiaFileInvoiceSolid } from "react-icons/lia";
 import PROJECT_DATA from "@/PROJECT_DATA";
-import { useState } from "react";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
+
+
 
 export default function PaidInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
