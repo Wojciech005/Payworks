@@ -36,7 +36,7 @@ export default function Popup({
             {!paymentStatus && (
               <div>
                 <p className="font-light mt-10">{popupContent}</p>
-                <h5 className="text-3xl font-light text-center my-5">
+                <h5 className="text-3xl font-light text-center mt-5 mb-10">
                   £{acceptedAmount}.00
                 </h5>
               </div>
@@ -51,7 +51,7 @@ export default function Popup({
             {acceptedAmount === 0 ? (
               <button
                 onClick={popupHandler}
-                className="bg-[#3E826D] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0">
+                className="bg-[#3E826D] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider">
                 Close
               </button>
             ) : (
@@ -59,13 +59,13 @@ export default function Popup({
                 {!paymentStatus && (
                   <button
                     onClick={popupHandler}
-                    className="bg-red-500 text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0 me-4">
+                    className="bg-red-500 text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider me-4">
                     Cancel
                   </button>
                 )}
 
                 <button
-                  className="bg-[#3E826D] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0"
+                  className="bg-[#3E826D] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider"
                   onClick={
                     !paymentStatus ? submitPaymentHandler : goToDashboard
                   }>
