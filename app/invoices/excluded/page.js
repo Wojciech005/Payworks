@@ -82,8 +82,7 @@ export default function ExcludedInvoices() {
                       <td className="py-2 font-light">{invoice.posted_date}</td>
                       <td className="py-2 font-light">{invoice.supplier}</td>
                       <td className="py-2 font-light">
-                        {invoice.amount}
-                        {invoice.currency}
+                      {invoice.amount.toLocaleString("en-US")} {invoice.currency}
                       </td>
                       <td className="py-2 font-light">{invoice.due_date}</td>
                       <td className="text-left font-light">
@@ -91,8 +90,7 @@ export default function ExcludedInvoices() {
                           className={`px-2 ${
                             invoice.status !== "excluded" &&
                             "text-white w-max bg-[#3E826D] rounded"
-                          }`}
-                        >
+                          }`}>
                           {invoice.status}
                         </p>
                       </td>
@@ -101,24 +99,21 @@ export default function ExcludedInvoices() {
                           className=" bg-[#3E826D] font-light text-white py-1 px-2 rounded"
                           onClick={() =>
                             updateItemValue(invoice.invoice_number, "pending")
-                          }
-                        >
+                          }>
                           Accept
                         </button>
                         <button
                           className="bg-amber-500 text-white  py-1 px-2 rounded font-light mx-3"
                           onClick={() =>
                             updateItemValue(invoice.invoice_number, "excluded")
-                          }
-                        >
+                          }>
                           Exclude
                         </button>
                         <button
                           className=" bg-red-500 font-light text-white py-1 px-2 rounded"
                           onClick={() =>
                             onDeleteInvoice(invoice.invoice_number)
-                          }
-                        >
+                          }>
                           Dispute
                         </button>
                       </td>

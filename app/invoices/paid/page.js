@@ -44,7 +44,7 @@ export default function PaidInvoices() {
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>
-             <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
+             <td className="py-2 font-light">{invoice.amount.toLocaleString("en-US")} {invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
              <td className='py-2 font-light'>{invoice.status}</td>
              </tr>

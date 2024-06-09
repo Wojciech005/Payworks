@@ -37,7 +37,7 @@ export default function Popup({
               <div>
                 <p className="font-light mt-10">{popupContent}</p>
                 <h5 className="text-3xl font-light text-center mt-5 mb-10">
-                  £{acceptedAmount}.00
+                  £{acceptedAmount.toLocaleString("en-US")}
                 </h5>
               </div>
             )}

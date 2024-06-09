@@ -97,7 +97,7 @@ function submitPaymentHandler(){
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>
-             <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
+             <td className="py-2 font-light">{invoice.amount.toLocaleString("en-US")} {invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
              <td className='text-left font-light'><p className={`px-2 ${invoice.status !== "pending" && 'text-white w-max bg-[#3E826D] rounded'}`}>{invoice.status}</p></td>
              <td className="text-right flex justify-end py-3">
@@ -113,7 +113,7 @@ function submitPaymentHandler(){
          <div className="flex flex-wrap justify-between items-center mt-5 p-3 md:p-6 bg-white rounded shadow">
           <div className="flex flex-col md:flex-row items-start md:items-center my-1">
           <p className="sm:me-4 font-light text-start">Accepted Invoices: <span className="font-normal">{acceptedInvoiceCount}</span></p>
-          <p className="sm:me-4 font-light text-start">Amount:  <span className="font-normal">£{totalAcceptedAmount}</span></p>
+          <p className="sm:me-4 font-light text-start">Amount:  <span className="font-normal">£{totalAcceptedAmount.toLocaleString("en-US")}</span></p>
           <p className="sm:me-4 font-light text-start">Excluded Invoices: <span className="font-normal">{30 - invoices.length}</span></p>
           </div>
          <button className=" bg-[#3E826D] my-1  text-white py-2 px-4 rounded font-medium w-full xs:w-auto  tracking-wider md:mt-0 h-fit" onClick={submitPaymentHandler}>

@@ -74,7 +74,7 @@ setInvoices(updatedItems);
              <td className="py-2 font-light">{invoice.posted_date}</td>
              <td className="py-2 font-light">{invoice.supplier_reference}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>
-             <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
+             <td className="py-2 font-light">{invoice.amount.toLocaleString("en-US")} {invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
              <td className='py-2 font-light text-end'>{invoice.status}</td>
              </tr>
