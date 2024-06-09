@@ -83,29 +83,29 @@ function submitPaymentHandler(){
              <th className="text-left pb-3"><input type="checkbox" className="w-4 h-4"/></th>
              <th className="text-left pb-3">Invoice Number</th>
              <th className="text-left pb-3">Posted Date</th>
-             {/* <th className="text-left pb-3">Supplier Ref</th> */}
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
              <th className="text-left pb-3">Due date</th>
-             <th className="text-left pb-3">Status</th>
+             <th className="text-left pb-3"><p className="ps-2">Status</p></th>
              <th className="pb-3 flex justify-end">Action</th>
            </tr>
          </thead>
          {invoices.map((invoice) => (
            <tbody className="border-t" key={invoice.invoice_number}>
+            <tr>
              <td className="py-2"><input type="checkbox" className="w-4 h-4" checked={invoice.status !== "pending" && true}/></td>
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
-             {/* <td className="py-2 font-light">{invoice.supplier_reference}</td> */}
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
-             <td className='text-left font-light'><p className={`px-2 ${invoice.status !== "pending" && 'text-white w-max bg-emerald-600 rounded'}`}>{invoice.status}</p></td>
+             <td className='text-left font-light'><p className={`px-2 ${invoice.status !== "pending" && 'text-white w-max bg-[#3E826D] rounded'}`}>{invoice.status}</p></td>
              <td className="text-right flex justify-end py-3">
-                 <button className=" bg-emerald-600 text-white py-1 px-2 rounded font-light" onClick={() => updateItemValue(invoice.invoice_number, 'accepted')}>Accept</button>
+                 <button className=" bg-[#3E826D] text-white py-1 px-2 rounded font-light" onClick={() => updateItemValue(invoice.invoice_number, 'accepted')}>Accept</button>
                  <button className="bg-amber-500 text-white  py-1 px-2 rounded font-light mx-3" onClick={() => updateItemValue(invoice.invoice_number, 'pending')}>Pending</button>
                  <button className="bg-red-500 text-white  py-1 px-2 rounded font-light" onClick={() => onDeleteInvoice(invoice.invoice_number)}>Exclude</button>
              </td>
+             </tr>
            </tbody>
          ))}
        </table>
@@ -116,8 +116,7 @@ function submitPaymentHandler(){
           <p className="sm:me-4 font-light text-start">Amount:  <span className="font-normal">£{totalAcceptedAmount}</span></p>
           <p className="sm:me-4 font-light text-start">Excluded Invoices: <span className="font-normal">{30 - invoices.length}</span></p>
           </div>
-         {/* <Button>Make the payment</Button> */}
-         <button className=" bg-emerald-600 my-1  text-white py-2 px-4 rounded font-medium w-full xs:w-auto  tracking-wider hover:bg-emerald-700 md:mt-0 h-fit" onClick={submitPaymentHandler}>
+         <button className=" bg-[#3E826D] my-1  text-white py-2 px-4 rounded font-medium w-full xs:w-auto  tracking-wider md:mt-0 h-fit" onClick={submitPaymentHandler}>
          Make the payment
          </button>
        </div>

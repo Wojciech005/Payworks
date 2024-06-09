@@ -60,13 +60,14 @@ setInvoices(updatedItems);
              <th className="text-left pb-3">Supplier Ref</th>
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
-             <th className="text-center pb-3">Due date</th>
+             <th className="text-left pb-3">Due date</th>
              <th className="text-end pb-3">Status</th>
              {/* <th className="text-right pb-3">Action</th> */}
            </tr>
          </thead>
          {invoices.map((invoice) => (
            <tbody className="border-t" key={invoice.invoice_number}>
+            <tr>
              {/* <td className="py-2"><input type="checkbox" className="w-4 h-4"/></td> */}
              {/* <td><div className={`pb-2 w-5 h-5 ${invoiceAccepted ? "bg-green-600" : ''}`}></div></td> */}
              <td className="py-2 font-light">{invoice.invoice_number}</td>
@@ -74,8 +75,9 @@ setInvoices(updatedItems);
              <td className="py-2 font-light">{invoice.supplier_reference}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
-             <td className="py-2 font-light text-center">{invoice.due_date}</td>
+             <td className="py-2 font-light">{invoice.due_date}</td>
              <td className='py-2 font-light text-end'>{invoice.status}</td>
+             </tr>
            </tbody>
          ))}
        </table>

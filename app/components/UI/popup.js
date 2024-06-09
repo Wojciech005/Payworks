@@ -1,10 +1,26 @@
-'use client'
+"use client";
 
 import Image from "next/image";
-import Link from "next/link";
-// import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-export default function Popup({ popupHandler, acceptedAmount, popupContent, buttonName }) {
+export default function Popup({
+  popupHandler,
+  acceptedAmount,
+  popupContent,
+}) {
+  const router = useRouter();
+  useRouter;
+
+  const [paymentStatus, setPaymentStatus] = useState(false);
+
+  function submitPaymentHandler() {
+    setPaymentStatus(true);
+  }
+
+  function goToDashboard() {
+    router.push("/");
+  }
 
   return (
     <>
@@ -17,14 +33,46 @@ export default function Popup({ popupHandler, acceptedAmount, popupContent, butt
               height={120}
               alt="Payworks - company logo."
             />
-            <p className="font-light mt-10">{popupContent}</p>
-            <h5 className="text-3xl font-light text-center my-5">£{acceptedAmount}.00</h5>
-            {/* {paymentStatus && <h5 className="text-xl font-light my-5">Payment done! Back to dashbord</h5>} */}
-        
+            {!paymentStatus && (
+              <div>
+                <p className="font-light mt-10">{popupContent}</p>
+                <h5 className="text-3xl font-light text-center my-5">
+                  £{acceptedAmount}.00
+                </h5>
+              </div>
+            )}
           </div>
-          {/* <Link href="/" className="bg-teal-700 text-white px-3 py-2 rounded shadow"></Link> */}
+          {paymentStatus && (
+            <h5 className="text-xl font-light my-5 text-center">
+              Payment done! Go to dashbord.
+            </h5>
+          )}
           <div className="text-end">
-          <button  onClick={popupHandler} className="bg-emerald-600 text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0">{buttonName}</button>
+            {acceptedAmount === 0 ? (
+              <button
+                onClick={popupHandler}
+                className="bg-[#3E826D] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0">
+                Close
+              </button>
+            ) : (
+              <div>
+                {!paymentStatus && (
+                  <button
+                    onClick={popupHandler}
+                    className="bg-red-500 text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0 me-4">
+                    Cancel
+                  </button>
+                )}
+
+                <button
+                  className="bg-[#3E826D] text-white px-5 py-2 rounded shadow-lg w-fit tracking-wider mt-10 xs:mt-0"
+                  onClick={
+                    !paymentStatus ? submitPaymentHandler : goToDashboard
+                  }>
+                  {!paymentStatus ? "Confirm" : "Dashboard"}
+                </button>
+              </div>
+            )}
           </div>
         </section>
       </div>

@@ -17,7 +17,7 @@ export default function Header() {
   function onShowProfileMenu() {
     setProfileMenu(!profileMenu);
   }
-  function handleKeyUp(event) {
+  function closeProfileMenuByKey(event) {
     if (event.key === "Escape") {
       setProfileMenu(false);
     }
@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full relative flex justify-between bg-[#1b493d] px-5 lg:px-12 py-4" onKeyUp={handleKeyUp}>
+      <header className="w-full relative flex justify-between bg-[#1b493d] px-5 lg:px-12 py-4" onKeyUp={closeProfileMenuByKey}>
         <div className="flex">
           <button className="block md:hidden" onClick={handleMobileMenu}>
             <RxHamburgerMenu className="text-white text-3xl me-4" />
@@ -42,6 +42,7 @@ export default function Header() {
               width={120}
               height={120}
               alt="Payworks - company logo."
+              priority
             /></Link>
         </div>
         <div className="flex items-center">
@@ -54,7 +55,7 @@ export default function Header() {
           <button className="w-10 h-10 relative bg-gray-400/50  rounded-xl flex items-center justify-center" onClick={onShowProfileMenu}>
             <span className="text-white">WD</span>
           </button>
-          <ProfileNavigation profileMenu={`absolute top-16 right-10 lg:right-20 bg-white rounded w-52  md:w-80 shadow-xl ${profileMenu ? "block" : "hidden"}`} closeProfileMenu={onShowProfileMenu}/>
+          <ProfileNavigation profileMenuOverlay={profileMenu && "block fixed left-0 top-0 w-full h-screen z-10"}  profileMenu={`absolute top-16 right-10 lg:right-20 bg-white rounded w-52 z-20  md:w-80 shadow-xl ${profileMenu ? "block" : "hidden"}`} closeProfileMenu={onShowProfileMenu}/>
         </div>
       </header>
       <MobileNavigation mobileMenuOverlay={mobileMenu && "lg:hidden fixed left-0 top-0 w-full h-screen bg-black/70 z-20"}

@@ -32,22 +32,22 @@ export default function PaidInvoices() {
            <tr>
              <th className="text-left pb-3">Invoice Number</th>
              <th className="text-left pb-3">Posted Date</th>
-             {/* <th className="text-left pb-3">Supplier Ref</th> */}
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
              <th className="text-left pb-3">Due date</th>
-             <th className="text-left pb-3 flex justify-end">Status</th>
+             <th className="text-left pb-3">Status</th>
            </tr>
          </thead>
          {paidInvoices.map((invoice) => (
            <tbody className="border-t" key={invoice.invoice_number}>
+            <tr>
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
-             {/* <td className="py-2 font-light">{invoice.supplier_reference}</td> */}
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount}{invoice.currency}</td>
              <td className="py-2 font-light">{invoice.due_date}</td>
-             <td className='py-2 font-light justify-end'>{invoice.status}</td>
+             <td className='py-2 font-light'>{invoice.status}</td>
+             </tr>
            </tbody>
          ))}
        </table>

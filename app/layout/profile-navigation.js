@@ -1,12 +1,13 @@
 import Link from "next/link";
 
-export default function ProfileNavigation({ profileMenu, closeProfileMenu }) {
+export default function ProfileNavigation({ profileMenu, closeProfileMenu, profileMenuOverlay }) {
   return (
     <>
+      <div className={profileMenuOverlay} onClick={closeProfileMenu}>
       <div className={profileMenu}>
         <div className="border-b py-3 px-5">
-          <h3 className="text-gray-600">Wojciech Dobosz</h3>
-          <p className="text-gray-600 font-extralight text-wrap">
+          <h3 className="text-gray-600 word-break-wrap">Wojciech Dobosz</h3>
+          <p className="text-gray-600 font-extralight word-break-wrap">
             wojtek@exmaple.net
           </p>
         </div>
@@ -42,6 +43,7 @@ export default function ProfileNavigation({ profileMenu, closeProfileMenu }) {
             Log Out
           </button>
         </div>
+      </div>
       </div>
     </>
   );

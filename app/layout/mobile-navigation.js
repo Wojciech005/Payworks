@@ -8,11 +8,12 @@ export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handle
       <div className={mobileMenuOverlay} onClick={handleClick}>
         <div className={mobileMenu} onClick={handleClick}>
           <Image
-            src="/Payworks-logo.png"
+            src="/Payworks-logo.svg"
             width={120}
             height={120}
             className="ms-3 mb-6"
             alt="Payworks - company logo."
+            priority
           />
           <nav className="h-full flex flex-col">
             <Link className="text-lg font-light text-gray ms-3 mb-4" href="/" onClick={handleClick}>
@@ -43,7 +44,7 @@ export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handle
               Disputes
             </Link>
             <button onClick={handleClick}>
-              <AiOutlineCloseCircle className="w-10 h-10 shadow-2xl font-light ms-2" />
+              <AiOutlineCloseCircle className="w-10 h-10 shadow-2xl font-light ms-2  text-[#52B9A3]" />
             </button>
           </nav>
         </div>

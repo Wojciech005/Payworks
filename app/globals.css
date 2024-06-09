@@ -46,15 +46,15 @@ main {
 }
 
 th, td {
-  padding-left: 20px;
+  padding-left: 0px;
   padding-right: 20px;
   min-width: 170px;
 }
 th:first-child, td:first-child {
-  padding-left: 10px;
+  padding-left: 0px;
   padding-right: 20px;
   min-width: 50px;
-  max-width: 100px;
+  max-width: 120px;
 }
 th:last-child, td:last-child {
   padding-left: 50px;
@@ -75,4 +75,8 @@ th:last-child, td:last-child {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.word-break-wrap {
+  word-break: break-all;
 }
