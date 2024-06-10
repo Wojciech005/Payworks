@@ -7,8 +7,8 @@ import TableCard from "@/app/components/UI/table-card";
 import Button from "@/app/components/UI/button";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import Heading from "@/app/components/UI/heading";
-import SubHeader from "@/app/layout/sub-header";
 import SubHeading from "@/app/components/UI/sub-heading";
+import { currencyFormatter } from "@/app/utility";
 
 
 
@@ -25,6 +25,8 @@ export default function ExcludedInvoices() {
     );
     setInvoices(updatedInvoices);
   }
+
+
 
   const updateItemValue = (invoice_number, updatedValue) => {
     const updatedItems = invoices.map((invoice) => {
@@ -86,7 +88,7 @@ export default function ExcludedInvoices() {
                       <td className="py-2 font-light">{invoice.due_date}</td>
                       <td className="py-2 font-light">{invoice.supplier}</td>
                       <td className="py-2 font-light">
-                      {invoice.amount.toLocaleString("en-US")} {invoice.currency}
+                      { currencyFormatter(invoice.amount)} {invoice.currency}
                       </td>
                       <td className="text-left font-light">
                         <p
