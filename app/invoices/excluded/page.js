@@ -125,7 +125,7 @@ export default function ExcludedInvoices() {
                 ))}
               </table>
             </TableCard>
-            <div className="flex justify-end p-3 md:p-6 mt-5  bg-white">
+            <div className="flex justify-end p-3 md:p-6 mt-5  bg-white shadow rounded">
               <Button handleClick={()=> alert("Invoices transferred!")}>Transfer</Button>
             </div>
           </div>
