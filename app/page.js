@@ -12,7 +12,6 @@ export default function Home() {
           <MdOutlineAddChart className="text-emerald-800 text-3xl me-1" />
           Dashboard
         </h1>
-        <Heading></Heading>
         <SelectPage />
       </div>
       <DashboardCards />
