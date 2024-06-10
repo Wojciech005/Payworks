@@ -43,7 +43,7 @@ export default function Popup({
             )}
           </div>
           {paymentStatus && (
-            <h5 className="text-xl font-light text-center my-10">
+            <h5 className="text-xl font-light my-10">
               Payment done! Go to dashbord.
             </h5>
           )}
