@@ -59,9 +59,9 @@ export default function ExcludedInvoices() {
                     <th className="text-left pb-3"><input type="checkbox" className="w-4 h-4"/></th>
                     <th className="text-left pb-3">Invoice Number</th>
                     <th className="text-left pb-3">Posted Date</th>
+                    <th className="text-left pb-3">Due date</th>
                     <th className="text-left pb-3">Supplier</th>
                     <th className="text-left pb-3">Amount</th>
-                    <th className="text-left pb-3">Due date</th>
                     <th className="text-left pb-3">
                       <p className="ps-2">Status</p>
                     </th>
@@ -83,11 +83,11 @@ export default function ExcludedInvoices() {
                         {invoice.invoice_number}
                       </td>
                       <td className="py-2 font-light">{invoice.posted_date}</td>
+                      <td className="py-2 font-light">{invoice.due_date}</td>
                       <td className="py-2 font-light">{invoice.supplier}</td>
                       <td className="py-2 font-light">
                       {invoice.amount.toLocaleString("en-US")} {invoice.currency}
                       </td>
-                      <td className="py-2 font-light">{invoice.due_date}</td>
                       <td className="text-left font-light">
                         <p
                           className={`px-2 ${

@@ -1,4 +1,4 @@
-import Tile from "./tile";
+import Tile from "./UI/tile";
 
 export default function DashboardCards() {
   return (

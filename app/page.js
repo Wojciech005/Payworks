@@ -1,6 +1,6 @@
 import { MdOutlineAddChart } from "react-icons/md";
 import DashboardChart from "./components/UI/chart";
-import DashboardCards from "./components/UI/dashbord-cards";
+import DashboardCards from "./components/dashbord-cards";
 import Heading from "./components/UI/heading";
 import SelectPage from "./components/UI/select";
 

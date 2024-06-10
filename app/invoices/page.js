@@ -6,6 +6,7 @@ import TableCard from "../components/UI/table-card";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import Heading from "../components/UI/heading";
 import SubHeading from "../components/UI/sub-heading";
+import Summary from "../components/summary";
 
 export default function Invoices() {
   const invoices = PROJECT_DATA[0].pay_run.invoices;
@@ -28,10 +29,10 @@ export default function Invoices() {
            <tr>
              <th className="text-left pb-3">Invoice Number</th>
              <th className="text-left pb-3">Posted Date</th>
+             <th className="text-left pb-3">Due date</th>
              <th className="text-left pb-3">Supplier Ref</th>
              <th className="text-left pb-3">Supplier</th>
              <th className="text-left pb-3">Amount</th>
-             <th className="text-left pb-3">Due date</th>
              <th className="text-end pb-3">Status</th>
            </tr>
          </thead>
@@ -40,10 +41,10 @@ export default function Invoices() {
             <tr>
              <td className="py-2 font-light">{invoice.invoice_number}</td>
              <td className="py-2 font-light">{invoice.posted_date}</td>
+             <td className="py-2 font-light">{invoice.due_date}</td>
              <td className="py-2 font-light">{invoice.supplier_reference}</td>
              <td className="py-2 font-light">{invoice.supplier}</td>
              <td className="py-2 font-light">{invoice.amount.toLocaleString("en-US")} {invoice.currency}</td>
-             <td className="py-2 font-light">{invoice.due_date}</td>
              <td className='py-2 font-light text-end'>{invoice.status}</td>
              </tr>
            </tbody>
@@ -51,6 +52,7 @@ export default function Invoices() {
        </table>
            </TableCard>
         }
+        <Summary />
       </div>
     </>
   );
