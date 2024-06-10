@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function InvoiceTypeNavigation() {
     const pathname = usePathname();
 
-    const linkClassName = "text-gray-600 ms-3 font-light";
-    const active = "text-gray-600 ms-3 font-light border-b border-gray-300";
+    const linkClassName = "text-gray-600 me-3 font-light";
+    const active = "text-gray-600 me-3 font-light border-b border-gray-300";
     
     return(
         <>
