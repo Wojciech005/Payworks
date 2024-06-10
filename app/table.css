@@ -1,0 +1,20 @@
+.table-wrap {
+    overflow-x:auto;
+  }
+  
+  th, td {
+    padding-left: 0px;
+    padding-right: 20px;
+    min-width: 170px;
+  }
+  th:first-child, td:first-child {
+    padding-left: 0px;
+    padding-right: 20px;
+    min-width: 50px;
+    max-width: 120px;
+  }
+  th:last-child, td:last-child {
+    padding-left: 50px;
+    padding-right: 0;
+  }
+  

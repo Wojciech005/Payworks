@@ -6,6 +6,9 @@ import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
 import Button from "@/app/components/UI/button";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
+import Heading from "@/app/components/UI/heading";
+import SubHeader from "@/app/layout/sub-header";
+import SubHeading from "@/app/components/UI/sub-heading";
 
 
 
@@ -38,15 +41,11 @@ export default function ExcludedInvoices() {
     <>
       <InvoiceTypeNavigation />
       <div className="flex min-h-screen flex-col py-8 md:py-12 px-5 lg:px-12">
-        <h1 className="text-2xl flex items-center mb-3 font-light">
-          <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1 font-light" />
+        <Heading>
+        <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1 font-light" />
           Excluded Invoices
-        </h1>
-        <div className="flex">
-          <h1 className="flex items-center me-4">
-            Invoices amount: {invoices.length}
-          </h1>
-        </div>
+        </Heading>
+        <SubHeading invoicesNumber={invoices.length}/>
         {invoices.length === 0 ? (
           <h1 className="text-3xl text-center mt-6 font-light">
             There are no invoices

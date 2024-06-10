@@ -25,7 +25,7 @@ export default function Popup({
   return (
     <>
       <div className="absolute top-0 left-0 w-full h-full bg-black/30 popup">
-        <section className="w-[90%] h-auto xs:w-96 xs:h-80 bg-white rounded-lg shadow-xl p-4 flex flex-col justify-between">
+        <section className="w-[90%] h-auto xs:w-96 bg-white rounded-lg shadow-xl p-4 flex flex-col justify-between">
           <div className="">
             <Image
               src="/Payworks-logo.svg"
@@ -34,16 +34,16 @@ export default function Popup({
               alt="Payworks - company logo."
             />
             {!paymentStatus && (
-              <div>
-                <p className="font-light mt-10">{popupContent}</p>
-                <h5 className="text-3xl font-light text-center mt-5 mb-10">
+              <div className="my-12">
+                <p className="font-light">{popupContent}</p>
+                <h5 className="text-3xl font-light text-center my-5">
                   £{acceptedAmount.toLocaleString("en-US")}
                 </h5>
               </div>
             )}
           </div>
           {paymentStatus && (
-            <h5 className="text-xl font-light my-5 text-center">
+            <h5 className="text-xl font-light text-center my-10">
               Payment done! Go to dashbord.
             </h5>
           )}

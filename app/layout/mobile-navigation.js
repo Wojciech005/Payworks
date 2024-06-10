@@ -3,6 +3,8 @@ import Image from "next/image";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handleClick}) {
+
+  const linkClassName = "text-lg font-light text-gray ms-3 mb-4"
   return (
     <>
       <div className={mobileMenuOverlay} onClick={handleClick}>
@@ -16,29 +18,29 @@ export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handle
             priority
           />
           <nav className="h-full flex flex-col">
-            <Link className="text-lg font-light text-gray ms-3 mb-4" href="/" onClick={handleClick}>
+            <Link className={linkClassName} href="/" onClick={handleClick}>
               Dashboard
             </Link>
             <Link
-              className="text-lg font-light text-gray ms-3 mb-4"
+              className={linkClassName}
               href="/invoices"
               onClick={handleClick}>
               Invoices
             </Link>
             <Link
-              className="text-lg font-light text-gray ms-3 mb-4"
+              className={linkClassName}
               href="/reports"
               onClick={handleClick}>
               Reports
             </Link>
             <Link
-              className="text-lg font-light text-gray ms-3 mb-4"
+              className={linkClassName}
               href="/payments"
               onClick={handleClick}>
               Payments
             </Link>
             <Link
-              className="text-lg font-light text-gray ms-3 mb-4"
+              className={linkClassName}
               href="/disputes"
               onClick={handleClick}>
               Disputes

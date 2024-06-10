@@ -6,6 +6,8 @@ import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
 import Popup from "@/app/components/UI/popup";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
+import Heading from "@/app/components/UI/heading";
+import SubHeading from "@/app/components/UI/sub-heading";
 
 export default function PendingInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
@@ -64,15 +66,11 @@ function submitPaymentHandler(){
     <>
     <InvoiceTypeNavigation />
       <div className="flex min-h-screen flex-col py-8 md:py-12 px-5 lg:px-12">
-        <h1 className="text-2xl flex items-center mb-3 font-light">
+        <Heading> 
           <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1" />
           Pending Invoices
-        </h1>
-        <div className="flex">
-          <h1 className="flex items-center me-4">
-          Invoices number: {invoices.length}
-          </h1>
-        </div>
+          </Heading>
+          <SubHeading invoicesNumber={invoices.length}/>
         {invoices.length === 0 ?  <h1 className="text-3xl text-center font-light mt-6">There are no invoices</h1> : 
         <div>
           <TableCard>

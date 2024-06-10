@@ -4,6 +4,8 @@ import PROJECT_DATA from "@/PROJECT_DATA";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
+import Heading from "@/app/components/UI/heading";
+import SubHeading from "@/app/components/UI/sub-heading";
 
 
 
@@ -16,15 +18,11 @@ export default function PaidInvoices() {
     <>
     <InvoiceTypeNavigation />
       <div className="flex min-h-screen flex-col py-8 md:py-12 px-5 lg:px-12">
-        <h1 className="text-2xl flex items-center mb-3 font-light">
-          <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1" />
+        <Heading>
+        <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1" />
           Paid Invoices
-        </h1>
-        <div className="flex">
-          <h1 className="flex items-center me-4">
-          Invoices number: {paidInvoices.length}
-          </h1>
-        </div>
+        </Heading>
+        <SubHeading invoicesNumber={paidInvoices.length}/>
         {paidInvoices.length === 0 ?  <h1 className="text-3xl text-center mt-6 font-light">There are no invoices</h1> : 
         <TableCard>
          <table className="table-auto w-full">

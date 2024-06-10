@@ -30,49 +30,8 @@ body {
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    text-wrap: balnce;
   }
-}
-
-/* table start  */
-
-.table-wrap {
-  overflow-x:auto;
-}
-
-th, td {
-  padding-left: 0px;
-  padding-right: 20px;
-  min-width: 170px;
-}
-th:first-child, td:first-child {
-  padding-left: 0px;
-  padding-right: 20px;
-  min-width: 50px;
-  max-width: 120px;
-}
-th:last-child, td:last-child {
-  padding-left: 50px;
-  padding-right: 0;
-}
-
-/* table end  */
- 
-.profile-menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  min-height: 100vh;
-  height: 100% !important;
-  z-index: 20;
-}
-
-.popup section {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .word-break-wrap {

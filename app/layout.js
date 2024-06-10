@@ -1,6 +1,8 @@
 import Header from "@/app/layout/header";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./table.css";
+import "./popup.css";
 import Footer from "./layout/footer";
 // import SideNavigation from "./layout/side-navigation";
 import SubHeader from "./layout/sub-header";
@@ -21,7 +23,6 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Header />
         <SubHeader />
-        {/* <SideNavigation /> */}
         {children}
         <Footer />
         </body>
