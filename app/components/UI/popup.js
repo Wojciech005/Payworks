@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {currencyFormatter } from "@/app/utility";
 
 export default function Popup({
   popupHandler,
@@ -37,7 +38,7 @@ export default function Popup({
               <div className="my-12">
                 <p className="font-light">{popupContent}</p>
                 <h5 className="text-3xl font-light text-center my-5">
-                  £{acceptedAmount.toLocaleString("en-US")}
+                  £{currencyFormatter(acceptedAmount)}
                 </h5>
               </div>
             )}
