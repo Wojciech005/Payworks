@@ -13,6 +13,7 @@ export default function SubHeader() {
                 <Link href="/reports" className={linkClassName}>Reports</Link>
                 <Link href="/payments" className={linkClassName}>Payments</Link>
                 <Link href="/disputes" className={linkClassName}>Disputes</Link>
+                <Link href="/data-transfer" className={linkClassName}>Data Transfer</Link>
             </nav>
         </div>
         </>

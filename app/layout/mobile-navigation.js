@@ -45,6 +45,12 @@ export default function MobileNavigation({ mobileMenu, mobileMenuOverlay, handle
               onClick={handleClick}>
               Disputes
             </Link>
+            <Link
+              className={linkClassName}
+              href="/data-transfer"
+              onClick={handleClick}>
+              Data Transfer
+            </Link>
             <button onClick={handleClick}>
               <AiOutlineCloseCircle className="w-10 h-10 shadow-2xl font-light ms-2  text-[#52B9A3]" />
             </button>
