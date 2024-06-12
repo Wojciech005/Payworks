@@ -5,18 +5,23 @@ import PROJECT_DATA from "@/PROJECT_DATA";
 import InvoiceTypeNavigation from "@/app/layout/invoice-type-navigation";
 import TableCard from "@/app/components/UI/table-card";
 import Popup from "@/app/components/UI/popup";
-import { LiaFileInvoiceSolid } from "react-icons/lia";
 import Heading from "@/app/components/UI/heading";
 import SubHeading from "@/app/components/UI/sub-heading";
 import  { acceptedAmount, currencyFormatter, countAcceptedInvoices } from "@/app/utility";
 
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
+
+
+
 export default function PendingInvoices() {
   const data = PROJECT_DATA[0].pay_run.invoices;
   const pendingInvoices = data.filter(invoice => invoice.excluded === false);
-
-
   const [invoices, setInvoices] = useState(pendingInvoices);
   const [submitPayment, setSubmitPayment] = useState(false);
+  const [isAscendingSupplier, setIsAscendingSupplier] = useState(true);
+  const [isAscendingAmount, setIsAscendingAmount] = useState(true);
+  const [isAscendingDate, setIsAscendingDate] = useState(true);
 
   function onDeleteInvoice(invoice_number) {
     const updatedInvoices = invoices.filter((invoice) => invoice.invoice_number !== invoice_number);
@@ -42,6 +47,44 @@ function submitPaymentHandler(){
   setSubmitPayment(!submitPayment)
 }
 
+const sortTableBySupplier = () =>  {
+  const sortedData = [...invoices].sort((a, b) => {
+    if (isAscendingSupplier) {
+      return a.supplier.localeCompare(b.supplier);
+    } else {
+      return b.supplier.localeCompare(a.supplier);
+    }
+  });
+  setInvoices(sortedData);
+  setIsAscendingSupplier(!isAscendingSupplier);
+};
+
+const sortTableByAmount = () => {
+  const sortedData = [...invoices].sort((a, b) => {
+    if (isAscendingAmount) {
+      return a.amount - b.amount;
+    } else {
+      return b.amount - a.amount;
+    }
+  });
+  setInvoices(sortedData);
+  setIsAscendingAmount(!isAscendingAmount);
+}
+
+const sortTableByDate = () => {
+  const sortedData = [...invoices].sort((a, b) => {
+    const dateA = new Date(a.due_date);
+    const dateB = new Date(b.due_date);
+    
+    if (isAscendingDate) {
+      return dateA - dateB;
+    } else {
+      return dateB - dateA;
+    }
+  });
+  setInvoices(sortedData);
+  setIsAscendingDate(!isAscendingDate);
+};
   return (
     <>
     <InvoiceTypeNavigation />
@@ -60,9 +103,12 @@ function submitPaymentHandler(){
              <th className="text-left pb-3"><input type="checkbox" className="w-4 h-4"/></th>
              <th className="text-left pb-3">Invoice Number</th>
              <th className="text-left pb-3">Posted Date</th>
-             <th className="text-left pb-3">Due date</th>
-             <th className="text-left pb-3">Supplier</th>
-             <th className="text-left pb-3">Amount</th>
+             <th className="text-left pb-3">Due date<button className="align-text-top ms-2" onClick={sortTableByDate}>{isAscendingDate ? <FaArrowUp />
+:  <FaArrowDown />}</button></th>
+             <th className="text-left pb-3">Supplier <button className="align-text-top ms-2" onClick={sortTableBySupplier}>{isAscendingSupplier ? <FaArrowUp />
+:  <FaArrowDown />}</button></th>
+             <th className="text-left pb-3">Amount <button className="align-text-top ms-2" onClick={sortTableByAmount}>{isAscendingAmount ? <FaArrowUp />
+:  <FaArrowDown />}</button></th>
              <th className="text-left pb-3"><p className="ps-2">Status</p></th>
              <th className="pb-3 flex justify-end">Action</th>
            </tr>
