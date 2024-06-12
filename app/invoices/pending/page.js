@@ -21,7 +21,8 @@ export default function PendingInvoices() {
   const [submitPayment, setSubmitPayment] = useState(false);
   const [isAscendingSupplier, setIsAscendingSupplier] = useState(true);
   const [isAscendingAmount, setIsAscendingAmount] = useState(true);
-  const [isAscendingDate, setIsAscendingDate] = useState(true);
+  const [isAscendingDueDate, setIsAscendingDueDate] = useState(true);
+  const [isAscendingPostedDate, setIsAscendingPostedDate] = useState(true);
 
   function onDeleteInvoice(invoice_number) {
     const updatedInvoices = invoices.filter((invoice) => invoice.invoice_number !== invoice_number);
@@ -71,20 +72,38 @@ const sortTableByAmount = () => {
   setIsAscendingAmount(!isAscendingAmount);
 }
 
-const sortTableByDate = () => {
+const sortTableByDueDate = () => {
   const sortedData = [...invoices].sort((a, b) => {
     const dateA = new Date(a.due_date);
     const dateB = new Date(b.due_date);
     
-    if (isAscendingDate) {
-      return dateA - dateB;
-    } else {
+    if (isAscendingDueDate) {
       return dateB - dateA;
+    } else {
+      return dateA - dateB;
     }
   });
   setInvoices(sortedData);
-  setIsAscendingDate(!isAscendingDate);
+  setIsAscendingDueDate(!isAscendingDueDate);
 };
+
+
+const sortTableByPostedDate = () => {
+  const sortedData = [...invoices].sort((a, b) => {
+    const dateA = new Date(a.due_date);
+    const dateB = new Date(b.due_date);
+    
+    if (isAscendingPostedDate) {
+      return dateB - dateA;
+    } else {
+      return dateA - dateB;
+    }
+  });
+  setInvoices(sortedData);
+  setIsAscendingPostedDate(!isAscendingPostedDate);
+};
+
+
   return (
     <>
     <InvoiceTypeNavigation />
@@ -102,8 +121,9 @@ const sortTableByDate = () => {
            <tr>
              <th className="text-left pb-3"><input type="checkbox" className="w-4 h-4"/></th>
              <th className="text-left pb-3">Invoice Number</th>
-             <th className="text-left pb-3">Posted Date</th>
-             <th className="text-left pb-3">Due date<button className="align-text-top ms-2" onClick={sortTableByDate}>{isAscendingDate ? <FaArrowUp />
+             <th className="text-left pb-3">Posted Date <button className="align-text-top ms-2" onClick={sortTableByPostedDate}>{isAscendingPostedDate ? <FaArrowUp />
+:  <FaArrowDown />}</button></th>
+             <th className="text-left pb-3">Due date<button className="align-text-top ms-2" onClick={sortTableByDueDate}>{isAscendingDueDate ? <FaArrowUp />
 :  <FaArrowDown />}</button></th>
              <th className="text-left pb-3">Supplier <button className="align-text-top ms-2" onClick={sortTableBySupplier}>{isAscendingSupplier ? <FaArrowUp />
 :  <FaArrowDown />}</button></th>
