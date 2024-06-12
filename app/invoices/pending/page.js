@@ -127,10 +127,10 @@ const filteredInvoices = invoices.filter((invoice) =>
           </div>
           <input
         type="text"
-        placeholder="Search by supplier"
+        placeholder="Search by Supplier"
         value={searchSupplier}
         onChange={handleSearch}
-        className="p-3 shadow rounded w-full sm:w-[250px] min-w-60 outline-none mb-3 mt-6"
+        className="p-3 shadow rounded w-full sm:w-[250px] min-w-60 outline-none mt-5 sm:mt-0"
       />
       </div>
         {invoices.length === 0 ?  <h1 className="text-3xl text-center font-light mt-6">There are no invoices</h1> : 
