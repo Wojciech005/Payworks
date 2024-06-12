@@ -23,6 +23,7 @@ export default function PendingInvoices() {
   const [isAscendingAmount, setIsAscendingAmount] = useState(true);
   const [isAscendingDueDate, setIsAscendingDueDate] = useState(true);
   const [isAscendingPostedDate, setIsAscendingPostedDate] = useState(true);
+  const [searchSupplier, setSearchSupplier] = useState('');
 
   function onDeleteInvoice(invoice_number) {
     const updatedInvoices = invoices.filter((invoice) => invoice.invoice_number !== invoice_number);
@@ -103,16 +104,35 @@ const sortTableByPostedDate = () => {
   setIsAscendingPostedDate(!isAscendingPostedDate);
 };
 
+const handleSearch = (event) => {
+  setSearchSupplier(event.target.value);
+};
+
+const filteredInvoices = invoices.filter((invoice) =>
+  invoice.supplier.toLowerCase().includes(searchSupplier.toLowerCase())
+);
+
 
   return (
     <>
     <InvoiceTypeNavigation />
       <div className="flex min-h-screen flex-col py-8 md:py-12 px-5 lg:px-12">
+        <div className="flex flex-wrap sm:flex-nowrap justify-between items-center">
+        <div className="flex flex-col">
         <Heading> 
           <LiaFileInvoiceSolid className="text-emerald-800 text-3xl me-1" />
           Pending Invoices
           </Heading>
           <SubHeading invoicesNumber={invoices.length}/>
+          </div>
+          <input
+        type="text"
+        placeholder="Search by supplier"
+        value={searchSupplier}
+        onChange={handleSearch}
+        className="p-3 shadow rounded w-full sm:w-[250px] min-w-60 outline-none mb-3 mt-6"
+      />
+      </div>
         {invoices.length === 0 ?  <h1 className="text-3xl text-center font-light mt-6">There are no invoices</h1> : 
         <div>
           <TableCard>
@@ -133,7 +153,7 @@ const sortTableByPostedDate = () => {
              <th className="pb-3 flex justify-end">Action</th>
            </tr>
          </thead>
-         {invoices.map((invoice) => (
+         {filteredInvoices.map((invoice) => (
            <tbody className="border-t" key={invoice.invoice_number}>
             <tr>
              <td className="py-2"><input type="checkbox" className="w-4 h-4" onChange={() => updateItemValue(invoice.invoice_number, 'accepted')} checked={invoice.status !== "pending" && true}/></td>
